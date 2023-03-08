@@ -15,7 +15,6 @@ function generatePassword() {
   function checkLength () {
     while(passwordLength < 8 || passwordLength > 128) {
       passwordLength = prompt("Sorry, but it seems you have entered a number that does not match the criteria, please try again using a number between 8 and 128.");
-      return;
     }
   }
   checkLength ();
@@ -42,12 +41,14 @@ function generatePassword() {
     if (lowerCase === true){
       var lowercaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
       for (i = 0; i < password.length; i++) {
-        var randomChar = Math.floor(Math.random() * (uppercaseLetters.length + 1));
+        var randomChar = Math.floor(Math.random() * (lowercaseLetters.length + 1));
         var randomIndex = Math.floor(Math.random() * password.length);
-        password[randomIndex] = uppercaseLetters[randomChar];
+        password[randomIndex] = lowercaseLetters[randomChar];
       }
     }
   }
+  addLowercase ();
+  console.log(password);
 }
 
 // Add event listener to generate button
