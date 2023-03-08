@@ -49,7 +49,7 @@ function generatePassword() {
   }
   addLowercase ();
   console.log(password);
-  var numbers = confirm("Would you like to add numbers to your password?")
+  var numbers = confirm("Would you like to add numbers to your password?");
   console.log(numbers);
   function addNumbers () {
     if (numbers === true){
@@ -62,6 +62,20 @@ function generatePassword() {
     }
   }
   addNumbers();
+  console.log(password);
+  var specChar = confirm("Would you like to add special characters to your password? Special characters include: !, ?, (, ), {, }, %, $, &, @, and *.");
+  console.log(specChar);
+  function addSpecChars () {
+    if (specChar === true){
+      var characters = ["!", "?", "(", ")", "{", "}", "%", "$", "&", "@", "*"];
+      for (i = 0; i < password.length; i++) {
+        var randomChar = Math.floor(Math.random() * (characters.length + 1));
+        var randomIndex = Math.floor(Math.random() * password.length);
+        password[randomIndex] = characters[randomChar];
+      }
+    }
+  }
+  addSpecChars();
   console.log(password);
 }
 
