@@ -49,6 +49,20 @@ function generatePassword() {
   }
   addLowercase ();
   console.log(password);
+  var numbers = confirm("Would you like to add numbers to your password?")
+  console.log(numbers);
+  function addNumbers () {
+    if (numbers === true){
+      var nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+      for (i = 0; i < password.length; i++) {
+        var randomChar = Math.floor(Math.random() * (nums.length + 1));
+        var randomIndex = Math.floor(Math.random() * password.length);
+        password[randomIndex] = nums[randomChar];
+      }
+    }
+  }
+  addNumbers();
+  console.log(password);
 }
 
 // Add event listener to generate button
