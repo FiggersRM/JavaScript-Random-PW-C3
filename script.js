@@ -25,20 +25,33 @@ function generatePassword() {
   var password = [];
   password.length = passwordLength;
   console.log(password.length);
-  var upperCase = confirm(
-    "Would you like to use uppercase letters in your password?"
-  );
-  console.log(upperCase);
-  var lowerCase = confirm(
-    "Would you like to use lowercase letters in your password?"
-  );
-  console.log(lowerCase);
-  var numbers = confirm("Would you like to add numbers to your password?");
-  console.log(numbers);
-  var specChar = confirm(
-    "Would you like to add special characters to your password? Special characters include: !, ?, (, ), {, }, %, $, &, @, and *."
-  );
-  console.log(specChar);
+  var upperCase;
+  var lowerCase;
+  var numbers;
+  var specChar;
+  function getCharTypes() {
+    upperCase = confirm(
+      "Would you like to use uppercase letters in your password?"
+    );
+    console.log(upperCase);
+    lowerCase = confirm(
+      "Would you like to use lowercase letters in your password?"
+    );
+    console.log(lowerCase);
+    numbers = confirm("Would you like to add numbers to your password?");
+    console.log(numbers);
+    specChar = confirm(
+      "Would you like to add special characters to your password? Special characters include: !, ?, (, ), {, }, %, $, &, @, and *."
+    );
+    console.log(specChar);
+  }
+  getCharTypes();
+  while (!upperCase && !lowerCase && !numbers && !specChar) {
+    alert(
+      "Sorry, but you must have at least one character type selected to generate a password. Please choose again."
+    );
+    getCharTypes();
+  }
   var uppercaseLetters = [
     "A",
     "B",
